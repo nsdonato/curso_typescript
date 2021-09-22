@@ -551,7 +551,8 @@
         - No es recomendable que la interfaz tenga  mas de un nivel (o sea, generar un objeto y adentro otro)
         Para eso creamos otra interfaz y usamos eso, ej:
         - Las interfaces no existen en ECMa6
-
+        - Es posible extender una interfaz con otra interfaz.
+        
         interface Client {
             name: string;
             age: number;
@@ -574,22 +575,70 @@
 
 
     69. Métodos en la interfaz
-
+        
+        - Una clase lo implementa, la interfaz no.
+        - Cambia la definición de metodo en la interfaz, en los tipos es de otra manera.
+        
+        interface Client {
+            name: string;
+            age: number;
+            address: Address,
+            getFullAddress(id:string): void 
+        }
+        
+         const client: Client = {
+            name: 'Fernando',
+            age: 25,
+            address: {
+                id: 125,
+                city: 'caba'
+            },
+            getFullAddress(id: string){
+                return this.address.city
+            }
+        }
+        
     70. Interfaces en las clases
-
+        
+       - Una clase no puede heredar -extends- de una interfaz, si implements -implementarla, recordar que obliga a la clase
+       a implementar todo lo de la interdaz.
+       - Se puede implementar mas de una interfaz
+       - tipos para Redux
+       
+       class Mutant implements Xmen, Human {
+            ...
+       }
+        
     71. Interfaces para las funciones
-
+        
+        - Según él, no se usa mucho.
+        - Para restringir o que luzca de tal manera la función.
+        - Es raro que hagan una función que primero la definan y después la asignen.
+        
+        interface addTwoNumbers {
+            (a: number, b: number): number;
+        }
+        
+        let addNumbersFunction: addTwoNumbers;
+        
+        addNumbersFuction = (a: number, b: number) => {
+            return 10;
+        }
+        
     72. Ejercicio práctico #5: Implementación de interfaces
-
-    73. Tarea y Resolución del ejercicio práctico #5
-
-    Quiz 5: Examen teórico #5
-
-        Ejercicio práctico #5: Implementación de interfaces
+        
         Por favor descarguen y descompriman el archivo adjunto y procedan a la siguiente clase donde les daré la introducción de lo que quiero que hagan
 
         Resources for this lecture
         app.ts.zip
+        
+    73. Tarea y Resolución del ejercicio práctico #5
+        ...
+        
+    Quiz 5: Examen teórico #5
+        
+        
+       
 
     74. Código fuente de la sección
 
