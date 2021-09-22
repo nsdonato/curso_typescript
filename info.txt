@@ -668,8 +668,25 @@
 
     76. Creando un Namespace
 
+        - Se usa mas a bajo nivel cuando se crea un framework, no tanto en front para desarrollar.
+        - En vez como hizo el una IIFE, se usa namespace para acceder a otros archivos, es un agrupador.
+        - Al mundo exterior solamente exportamos lo que necesitamos.
+        
+        namespace Validations {
+            export const validateText = (text: string): boolean  => {
+                return text.length > 3 ? true : false;
+            }
+            
+            export const validateDate = (fecha: Date): boolean => {
+                return isNaN(myDate.valueOf) ? false : true;
+            }
+            
+        }
+        
     77. Inicio de proyecto - Módulos y Webpack
-
+        
+        Bajar el código, npm install, npm start
+        
     78. Imports y Exports
 
     79. Export default y exportación con alias
