@@ -1,0 +1,738 @@
+# Section 1: Introducción a TypeScript
+
+    1. Introducción a TypeScript
+
+    2. ¿Cómo funcionará el curso?
+
+    3. ¿Cómo hacer preguntas?
+
+    4. Instalaciones necesarias
+
+# Section 2: Introducción a TypeScript
+
+    5. Introducción a la sección
+
+    6. Instalación de TypeScript
+
+    7. Hola Mundo en TypeScript
+
+    8. TSConfig.json
+
+    9. Modo observador - Watch mode
+
+# Section 3: Tipos básicos
+
+    10. ¿Qué veremos en esta sección?
+
+    11. Introducción a los tipos de datos
+
+    12. Más información sobre los tipos de datos
+
+    13. Inferir tipos y modo estricto
+
+    14. Booleans - Booleanos
+
+    15. Numbers - Números
+
+    16. Strings - Cadenas de caracteres
+
+    17. Tipo Any
+
+    18. Arrays - Arreglos
+
+    19. Tuples - Tuplas
+
+    20. Emun - Enumeraciones
+
+    21. Void - Vacío
+
+    22. Never - Nunca
+
+    23. Null y Undefined
+
+    24. Ejercicio práctico #1.
+
+    25. Tarea y Resolución del Ejercicio #1
+
+    Quiz 1: Exámen teórico #1
+
+# Section 4: Funciones y objetos
+
+    26. ¿Qué veremos en esta sección?
+
+    27. Funciones básicas
+
+    28. Parámetros obligatorios de las funciones
+
+    29. Parámetros opcionales de las funciones
+
+    30. Parámetros por defecto
+
+    31. Parametros REST
+
+    32. Tipo Función
+
+    33. Tarea y Resolución del ejercicio práctico #2
+
+    Quiz 2: Examen teórico #2
+
+# Section 5: Objetos y tipos personalizados en TypeScript
+
+    34. ¿Qué veremos en esta sección?
+
+    35. Objetos básicos
+
+    36. ¿Cómo crear objetos con tipos específicos?
+
+    37. Métodos dentro de los objetos
+
+    38. Problema con la definición en línea
+
+    39. Tipos personalizados
+        Existe una palabra reservada: type
+
+        type Hero = {
+            name: string;
+            age?: number;
+            powes: string[];
+            getName?: () => string;
+        }
+
+        let flash: Hero = {
+            name: 'Superman',
+            age: 24,
+            powers: ['Super velocidad', 'Volar']
+        }
+
+        let flash: Hero = {
+            name: 'Superman',
+            age: 24,
+            powers: ['Super velocidad', 'Volar']
+            getName (){
+                return this.name;
+            }
+        }
+
+
+    40. Multiples tipos permitidos
+        let myCustomVariable: string | number | Hero = ''
+        Los tipos no existen del lado de JS, si las clases, por eso 
+        cuando haces un console log de Hero no ves nada (salvo object), 
+        si fuera una clase si.
+
+    41. Ejercicio práctico #3
+        TODO: ejercicio
+
+    42. Tarea y Resolución del ejercicio práctico #3
+        ...
+
+    Quiz 3: Examen teórico #3
+        OK
+
+    43. Código fuente de la sección
+        ...
+
+# Section 6: Depuración de Errores y el archivo tsconfig.json
+
+    44. ¿Qué veremos en esta sección?
+
+        La sección se enfoca en la depuración de errores y comprender el archivo de configuración de TypeScript (el tsconfig.json)
+
+        Puntualmente:
+
+        Aprenderemos el ¿por qué siempre compila a JavaScript?
+        Para que nos puede servir el archivo de configuración de TypeScript
+        Realizaremos depuración de errores directamente a nuestros archivos de TypeScript
+        Removeremos todos los comentarios en nuestro archivo de producción.
+        Restringiremos al compilador que sólo vea ciertos archivos o carpetas
+        Crearemos un archivo final de salida
+        Aprenderemos a cambiar la version de JavaScript de salida
+        Adicionalmente tendrán el conocimiento necesario para compilar automáticamente cualquier archivo que se vaya creando al momento de ser insertado a nuestro proyecto.
+
+    45. ¿Qué es el archivo tsconfig y para qué nos puede servir?
+        ...
+
+    46. ¿Es posible la depuración del código de TypeScript?
+        descomentar en el tsconfig "sourceMap": true
+        aargs-default.js.map -> un mapa a la representación propia que tiene nuestro código en ts.
+
+        en los type no se pueden poner breakpoints
+
+    47. Remover los comentarios de los archivos de JavaScript
+        habilitar "removeComments": true en tsconfig, elimina los comentarios cuando transpila
+        los sourceMap hay que sacarlos en prod.-
+
+    48. Incluir y excluir carpetas y/o archivos
+        después del obj predeterminado, agregar en el tsconfig:
+        "exclude": [
+            "objectos/*.ts"
+        ]
+        Esto sirve para que no transpile los archivos ni genere el sourcemap.
+        
+        De esta manera incluye la carpeta y archivos:
+        "include": [
+            "objectos/*.ts"
+        ]
+
+    49. outFile - Archivo de salida
+        unificar todos los archivos de ts en uno solo.
+        elimina todos los archivos .js y js.map
+        solo tiene que leer un segmento del disco, en vez de muchas lecturas
+        gracias al source map del main, se sabe de que archivo ts viene cada cosa.
+
+# Section 7: Características de ES6 o JavaScript2015 disponibles a través TypeScript
+
+    50. ¿Qué veremos en esta sección?
+
+        JavaScript va actualizando año con año, y tenemos que estar enterados de todo lo nuevo para saber cómo le sacamos el máximo provecho!
+
+        Esta sección esta orientada a enseñarles un par de cosas muy útiles y necesarias del ES6 (ES2015 o ECMAScript 6), que ya podemos utilizar con toda confianza en TypeScript.
+
+        Aprenderemos sobre:
+
+        Diferencia entre declarar variables con VAR y con LET
+        Uso de constantes
+        Plantillas literales
+        Funciones de flecha
+        Destructuración de objetos
+        Destructuración de Arreglos
+        Nuevo ciclo, el FOR OF
+        Conocer sobre la programación orientada a objetos
+        Clases
+        Al final, un examen práctico y teórico para afianzar los conocimientos.
+
+    51. Variables LET
+        Por ejemplo si queremos probar algo especifico, en inlude ponemos esa carpeta sola y listo, el main va a tener solo lo que haya en los archivos
+        ts dentro de esa carpeta.
+
+        Si usamos la versión es6 tenemos marcado de errores que con es5 no
+
+        lo unico que dijo fue no usar var, usar let y const (const, si sabemos que no va a cambiar el valor)
+
+    52. Desestructuración de Objetos
+        const avengers = {
+            vision: 'Paul Bettany',
+            activo: true,
+            poder: 14000
+        }
+
+        const { poder, vision } = avengers
+
+        si pasamos como parametros podríamos desestructurar en los parametros de una función, ej:
+        type Advengers = {
+            vision: 'Paul Bettany',
+            activo: true,
+            poder: 14000
+        }
+
+        const printAvenger = ({ironman, ...resto} : Advengers) => {
+            // resto es el resto de las propiedades del objt menos ironman
+
+        }
+    53. Dsestructuración de Arreglos
+        const avengersArr ? ['Cap America', 'Ironman']
+              
+              0, 1      ,2
+        const [, ironman, ] = avengersArr // da igual el nombre que le pongas porque lo destructura por index.
+
+        si usaramos una tupla, sabría de que tipo es cada item destructurado.
+
+    54. Ciclo - For of
+        const avenger: Avenger = {
+            ironman: 'Jr',
+            capitanAmerica: 'escudo'
+        }
+
+        const { ironman, capitanAmerica } = avenger
+        const avengers: Avenger[] = [ironman, capitanAmerica]
+        for (const avenger of avengers){
+            console.log(avenger.name)
+        }
+
+    55. Clases en ES6
+        las clases están a partir de ES6
+
+        class Avenger = {
+            name;
+            power;
+
+            constructor(name, power){
+                this.name = name;
+                this.power = power;
+            }
+
+        }
+
+        class FlyingAvenger extends Avenger {
+            flying;
+            
+            constructor(name, power){
+                super(name, power);
+                this.flying = true;
+            }
+        }
+
+        const hulk = new Avenger()
+        const falcon = new FlyingAvenger()
+
+        console.log(hulk)
+
+    Quiz 4: Examen teórico #4
+        ...
+
+    56. Código fuente de la sección
+    
+        Aquí les dejo el código fuente de la sección como material adjunto o bien el enlace al repositorio de Github del proyecto
+
+        https://github.com/Klerith/ts-bases/tree/fin-seccion-7
+
+# Section 8: Clases en TypeScript
+
+    57. ¿Qué veremos en esta sección?
+        La programación orientada a objetos es un tema sumamente importante, especialmente si nuestras aplicaciones van de mediana a gran escala. TypeScript trae toda la potencia de una programación orientada a objetos a la web.
+
+        Toda la sección se enfoca en enseñar sobre el uso de clases.
+
+        Puntualmente aprenderemos sobre:
+
+            Crear clases en TypeScript
+            Constructores
+            Accesibilidad de las propiedades:
+            Públicas
+            Privadas
+            Protegidas
+            Métodos de las clases que pueden ser:
+            Públicos
+            Privados
+            Protegidos
+            Herencia
+            Llamar funciones del padre, desde los hijos
+            Getters 
+            Setters
+            Métodos y propiedades estáticas
+            Clases abstractas
+            Constructores privados.
+
+    58. Definición de una clase básica en TypeScript
+
+    - Por default siempre es public, pero es buena practica ponerle el tipo de acceso.
+    - Como se traduce el código a js, no se van a ver esas propiedades, tener en cuenta eso
+
+        class Avenger {
+            private name:string = "" //  solo voy a tener acceso a esta propiedad, dentro de esta clase, se puede poner valores por defecto.
+            private team:string // se va a poder acceder por fuera de la clase
+            public realName?:string // es opcional
+            static avgAge:number = 35 // para poder tener acceso, se necesita usar la definición de la clase, sin instanciar punto, el nombre de la propiedad estatica
+
+            constructor(name:string, team: string, realName: string){
+                this.name = name;
+                this.team = team;
+                this.realName = realName;
+            }
+        }
+
+        const antman: Avenger = new Avenger('Antman', 'Capitan')
+
+    59. Forma corta de asignar propiedades
+
+        - Se podrían ahorrar la declaracion de las variables antes. pero queda mas legible, con.
+
+        // Esta es la manera mas corta :|
+        static avgAge:number = 35
+
+        class Avenger {
+            constructor(
+                private name:string, 
+                private team: string, 
+                public realName: string
+            ){}
+        }
+
+        // pPra poder cambiar la variable estatica, sería:
+        static avgAge:number = 35
+        
+        class Avenger {
+            constructor(
+                private name:string, 
+                private team: string, 
+                public realName: string
+                avgAge: number = 55
+            ){
+                Avenger.avgAge = avgAge
+            }
+        }
+
+    60. Métodos públicos y privados
+
+        Puede haber metodos publicos, privados y estaticos..
+        En ECMAScript 6 no hay manera de hacer el metodo privado, en typescript se puede hacer pero te avisa que no funciona 
+
+        static avgAge:number = 35
+        static getAvgAge() { // esta mal es para el ejemplo.-
+            return this.name; // te devuelve el nombre de la clase
+        }
+
+        class Avenger {
+            constructor(
+                private name:string, 
+                private team: string, 
+                public realName: string
+            ){}
+        
+            public bio()  { // es publico por defecto
+                return `${this.name} (${this.team})`
+            }
+        }
+
+    61. Herencia, super y extends
+
+         class Avenger {
+            constructor(
+                public name:string, 
+                public realName: string
+            ){}
+        
+
+            private getFullName()  { 
+                return `${this.name} ${this.realName}`
+            }
+         }
+
+        class Xmen extends Avenger {
+            constructor(
+                name:string, 
+                realName: string
+                public isMutant:boolean
+            ){
+                super(name, realName) // hay que llamar al constructor de la clase padre y pasarle los argumentos necesarios
+            }
+        }
+
+        const wolverine = new Xmen('Wolverine','Logan')
+        console.log(wolverine)
+
+        protected -> podemos acceder a metodos y propiedades desde subclases.
+        
+    62. Gets y Sets
+
+        Parecen propiedades pero son como un metodo.
+
+        get fullName(){
+            return `${this.name} - ${this.realName}`
+        }
+
+        // recibe un solo argumento, no puede recibir 2.
+        set fullName(name:string){
+            this.name = name;
+        }
+
+
+        cuando hacemos obj. parece una propiedad no un metodo, pero lo es.- simplemente no se invoca como un metodo sino una propiedad.
+        wolverine.fullName = 'Fernando'
+        console.log(wolverine.fullName)
+
+    63. Clases Abstractas
+        
+        - No se puede crear instancias de las clases abstractas, sirven para crear otras clases mientras estas extiendan de ella
+        - Sirven de molde
+        - Para asegurarme que un argumento puede ser de cualquier otro tipo, mientras tanto implemente las caracteristicas de la clase abstracta.
+
+
+        abstract class Mutante { 
+            constructor(
+                public name: string,
+                public realName: string
+            ){}
+        }
+
+        class Xmen extends Mutante {
+            salvarMundo(){
+                return 'Mundo a salvo';
+            }
+        }
+
+        class Villian extends Mutante {
+            conquistarMundo(){
+                return 'Mundo conquistado';
+            }
+        }
+
+        const wolverine = new Mutante('Wolverine','Logan')
+        const magneto = new Villian('Magneto','Magnus')
+
+        const printName = (character: Mutante) => {
+            console.log(character.realName)
+        }
+
+        printName(wolverine) // Wolverine
+        printName(mangeto) // Mangeto
+
+    64. Constructores privados
+
+        (Cada vez se usa menos)
+        - Sirve para controlar la manera en la cual sus instancias son ejecutadas, por ej para manejar singleton.
+        - Dice que a esta altura no debería usar el patron Singleton (?)
+
+        // Singleton
+
+        class Apocalipsis {
+            static instane: Apocalipsis;
+
+            private constructor (public name:string){ // solo va poder ser llamado desde dentro de la clase.
+
+            }
+
+            // debe regresar una instancia de apocalipsis
+            static callApocalipsis:Apocalisis (){
+                if(!Apocalipsis.instance){
+                    Apocalipsis.instance = new Apocalipsis('Soy apocalisis el único')
+                }
+
+                return instance;
+
+            }
+
+            // Cambia el nombre del apocalipsis, pero sigue siendo la misma instancia.-
+            changeName (newName: string): void {
+                this.name = newName;
+            }
+        }
+
+        const apocalipsis = new Apocalipsis('Soy el unico apocalipsis')
+        console.log(apocalipsis)
+
+        const apocalipsis1 = Apocalipsis.callApocalipsis()
+        const apocalipsis2 = Apocalipsis.callApocalipsis()
+        const apocalipsis3 = Apocalipsis.callApocalipsis()
+
+        apocalipsis3.changeName('Xavier')
+
+    65. Código fuente de la sección
+
+        Les dejo el código del proyecto hasta este punto y también el repositorio de GitHub por si lo quieren tener a la mano.
+
+        Github- Fin-seccion-8
+
+        Resources for this lecture
+        ts-bases-fin-seccion-8.zip
+
+# Section 9: Interfaces
+
+    66. ¿Qué veremos en esta sección?
+
+        Esta sección esta dedicada a crear interfaces, las cuales nos permitirán crear reglas o planos de como se deben de construir clases, métodos u objetos.
+
+        Puntualmente aprenderemos:
+
+        ¿Por qué es necesario una interfaz?
+        ¿Cómo creamos una interfaz básica?
+        Crear propiedades opcionales
+        Crear métodos
+        Asignar interfaces a las clases
+        Al final, tendremos un examen práctico y teórico sobre las interfaces.
+
+    67. Interfaz básica
+
+        - Funciona basicamente para casi lo mismo que un tipo
+        - Tampoco tiene una representación como el tipo
+        - Los tipos no son extendibles, no puede expandirse como las interfaces.
+            Son mas usadas para peticiones http y cuando sabemos que no se van a extender.
+            Los tipos se usan mayormente en Redux
+        - Microsoft dice que son muy similares salvo esas cosas que anotamos.
+        
+        interface Hero {
+            name: string;
+            age?: string;
+            getName?: () => string;
+        }
+
+    68. Estructuras complejas
+
+        - No es recomendable que la interfaz tenga  mas de un nivel (o sea, generar un objeto y adentro otro)
+        Para eso creamos otra interfaz y usamos eso, ej:
+        - Las interfaces no existen en ECMa6
+
+        interface Client {
+            name: string;
+            age: number;
+            address: Address
+        }
+
+        interface Address: {
+            id: number,
+            city: string
+        }
+
+        const client: Client = {
+            name: 'Fernando',
+            age: 25,
+            address: {
+                id: 125,
+                city: 'caba'
+            }
+        }
+
+
+    69. Métodos en la interfaz
+
+    70. Interfaces en las clases
+
+    71. Interfaces para las funciones
+
+    72. Ejercicio práctico #5: Implementación de interfaces
+
+    73. Tarea y Resolución del ejercicio práctico #5
+
+    Quiz 5: Examen teórico #5
+
+        Ejercicio práctico #5: Implementación de interfaces
+        Por favor descarguen y descompriman el archivo adjunto y procedan a la siguiente clase donde les daré la introducción de lo que quiero que hagan
+
+        Resources for this lecture
+        app.ts.zip
+
+    74. Código fuente de la sección
+
+
+        Aquí les dejo el código fuente por si lo llegan a necesitar o comparar contra el mío
+
+        GitHub Fin Sección 8
+
+        Nota:
+            Por favor, este curso ha tenido actualizaciones desde hace más de 5 años de forma gratuita y están viendo una actualización mayor en la cual regrabé cada clase del curso sin costo para ustedes, les pediría que me ayuden volviendo a calificar el curso y si pueden recomendarlo a otras personas, me serviría bastante porque eso es lo que mantiene vivos los cursos míos
+            Si quieren saber qué cursos tengo que usan TypeScript, lo pueden ver aquí:
+            Cursos que utilizan TypeScript
+
+# Section 10: NameSpaces
+
+    75. ¿Qué veremos en esta sección?
+
+        TypeScript, es un lenguaje de programación web, que nos permite crear objetos que nos servirán a lo largo de nuestro programa. Los namespaces, existen para ayudarnos en la re utilización de nuestras variables, constantes y métodos.
+
+        Puntualmente aprenderemos sobre:
+
+        Explicación del ¿por qué son necesarios los namespaces?
+        Crear namespaces
+        Multiples namespaces en un mismo proyecto
+        Importar namespaces
+        Problemática que se puede presentar utilizando un namespace.
+
+    76. Creando un Namespace
+
+    77. Inicio de proyecto - Módulos y Webpack
+
+    78. Imports y Exports
+
+    79. Export default y exportación con alias
+
+    80. Tarea - Resolver errores en TypeScript
+
+    81. Código fuente de la sección
+
+        Aquí les dejo el código fuente y repositorio de GitHub por si quieren tenerlo a la mano o compararlo contra el mío
+
+        Github - Fin-seccion-10
+
+        Resources for this lecture
+        curso-typescript-fin-seccion-10.zip
+
+# Section 11: Genéricos - Generics
+
+    82. ¿Qué veremos en esta sección?
+
+        JavaScript por ser un lenguaje dinámico, conlleva a tener varios problemas por esa misma flexibilidad, pero a su vez, permite resolver problemas de una forma muy sencilla. Esta sección esta destinada a comprender como mantener la programación estructurada del TypeScript con el dinamismo de JavaScript.
+
+        Puntualmente aprenderemos sobre:
+
+        Uso de los genéricos
+        Funciones genéricas
+        Ejemplos prácticos sobre los genéricos
+        Arreglos genéricos
+        Clases genéricas
+
+    83. Introducción a los Genéricos
+
+    84. Funciones Genéricas
+
+    85. Ejemplo de función genérica en acción
+
+    86. Agrupar exportaciones
+
+    87. Ejemplo aplicado de genéricos
+
+    88. Mapear respuestas http
+
+    89. Quicktype.io extensión
+
+    90. Código fuente de la sección
+
+        Aquí les dejo el código fuente de la sección por si la llegan a necesitar o comparar contra el suyo.
+
+        Github - Fin-seccion-11
+
+        Resources for this lecture
+        curso-typescript-fin-seccion-11.zip
+
+# Section 12: Decoradores
+
+    91. ¿Qué veremos en esta sección?
+
+        Los decoradores son una característica nueva en el TypeScript que cada vez es más utilizada por otros frameworks como Angular 2. Pero vamos a aprender a utilizar decoradores en nuestros proyectos.
+
+        Puntualmente aprenderemos sobre:
+
+        ¿Qué son los decoradores?
+        ¿Para qué sirven?
+        Decoradores de clases
+        Decoradores de fabrica
+        Ejemplos prácticos
+        Decoradores anidados
+        Decoradores de métodos
+        Decoradores de propiedades
+        Decoradores de parámetros
+
+    92. Introducción a los decoradores
+
+    93. Decoradores de clases
+
+    94. Decoradores de fabrica - Factory decorators
+
+    95. Ejemplo de un decorador - Bloquear prototipo
+
+    96. Decoradores de métodos
+
+    97. Decoradores de propiedades
+
+    98. Código fuente de la sección
+
+        Aquí les dejo el código fuente de la sección por si lo llegan a necesitar en algún momento o bien para compararlo contra el mío
+
+        Github - fin-seccion-12
+
+        También lo pueden descargar del material adjunto.
+
+        Resources for this lecture
+        curso-typescript-fin-seccion-12.zip
+
+# Section 13: Usando librerías que no están escritas en TypeScript ( Como jQuery )
+
+    99. ¿Qué veremos en esta sección?
+
+        Sabemos muy bien que nuestras aplicaciones web, no serán programadas únicamente con TypeScript puro, por lo cual es importante aprender como utilizar librerías de terceros en nuestros proyectos de TypeScript.
+        Puntualmente aprenderemos sobre:
+        Configuración de un proyecto utilizando el package.json y realizar instalaciones con node.
+        Utilizar archivos de definiciones "*.d.ts" o Typings
+        Agregar definiciones de archivos mediante node
+
+    100. Inicio de proyecto - Express API
+
+    101. Creando un Rest API con Express
+
+    102. Trabajar con TypeScript en lugar de JavaScript
+
+# Section 14: Final del curso
+
+    103. Más sobre mis cursos
+        ...
+    104. Despedida del curso
+        ...
