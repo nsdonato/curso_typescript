@@ -686,8 +686,18 @@
     77. Inicio de proyecto - Módulos y Webpack
         
         Bajar el código, npm install, npm start
+        https://github.com/Klerith/curso-typescript/tree/codigo-inicial
         
     78. Imports y Exports
+        
+        Las clases se pueden definir en minuscula o mayuscula, depende del framework o libreria que usamos, nos adaptamos a sus mejores practicas.
+        
+        // al definir la clase en su propio archivo, la exportamos con export
+        export class Hero
+        
+        // para importar, desde donde queremos importar:
+        import { Hero } from './classes/Hero'
+        
 
     79. Export default y exportación con alias
 
