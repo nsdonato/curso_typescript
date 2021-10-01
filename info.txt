@@ -686,13 +686,51 @@
     77. Inicio de proyecto - Módulos y Webpack
         
         Bajar el código, npm install, npm start
-        
+        nada más...
+
     78. Imports y Exports
+
+        Esto solo lo podes utilizar al trabajar con modulos en JS y se necesita webpack o Babel para eso ya que es de las últimas caracteristicas de JS.
+
+        // exportar algo por nombre
+        export const Hero
+
+        // importar destructurando el archivo y por nombre.
+        import { Hero } from './Hero'
+
 
     79. Export default y exportación con alias
 
+        const class Hero = {
+            public name: string
+        }
+
+        export default Hero
+
+        // default, se le puede poner cualquier nombre
+        import test from './Hero'
+
+        // export - import con alias
+        export class Hero = {
+            public name: string
+        }
+
+        // una opción:
+        import { Hero as SuperHero} from './Hero' 
+        const Hero = 1
+        const ironman = new SuperHero('ironman')
+
+        // segunda opción
+        import * as HeroClasses from './Hero'
+        const Hero = 1
+        const ironman = new HeroClasses.Hero('ironman')
+
+        Se puede exportar tipos, interfaces, objetos, arrays, etc.
+
     80. Tarea - Resolver errores en TypeScript
 
+        - En vez de usar ? cuando sabes que estas realmente seguro que no puede fallar ni devoler null o undefined, usas el ! que significa eso, estoy seguro...
+        
     81. Código fuente de la sección
 
         Aquí les dejo el código fuente y repositorio de GitHub por si quieren tenerlo a la mano o compararlo contra el mío
