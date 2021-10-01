@@ -688,7 +688,18 @@
         Bajar el código, npm install, npm start
         nada más...
 
+        https://github.com/Klerith/curso-typescript/tree/codigo-inicial
+        
     78. Imports y Exports
+        
+        Las clases se pueden definir en minuscula o mayuscula, depende del framework o libreria que usamos, nos adaptamos a sus mejores practicas.
+        
+        // al definir la clase en su propio archivo, la exportamos con export
+        export class Hero
+        
+        // para importar, desde donde queremos importar:
+        import { Hero } from './classes/Hero'
+        
 
         Esto solo lo podes utilizar al trabajar con modulos en JS y se necesita webpack o Babel para eso ya que es de las últimas caracteristicas de JS.
 
@@ -730,7 +741,7 @@
     80. Tarea - Resolver errores en TypeScript
 
         - En vez de usar ? cuando sabes que estas realmente seguro que no puede fallar ni devoler null o undefined, usas el ! que significa eso, estoy seguro...
-        
+
     81. Código fuente de la sección
 
         Aquí les dejo el código fuente y repositorio de GitHub por si quieren tenerlo a la mano o compararlo contra el mío
